@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzarriba</title>
+</head>
+<body>
+    <h1>Seja bem vindo a Pizzarriba</h1>
+
+    <div>
+        <form action="/main" method="POST">
+            <label for="nome">Seu nome:</label>
+            <input type="text" name="nome">
+            <br>
+            <label for="cpf">Qual o seu CPF?:</label>
+            <input type="text" name="cpf" id="">
+            <br>
+            <label for="endereco">Qual o Seu endereço?:</label>
+            <input type="text" name="endereco">
+            <hr>
+            <label for="sabor">Qual sabor você deseja hoje?</label>
+            <select name="sabor" id="">
+                <option value="XXXX">XXXX</option>
+                <option value="XXXX">YYYY</option>
+            </select>
+            <br>
+            <label for="tamanho">Qual tamanho você deseja?: </label>
+            <select name="tamanho" id="">
+                <option value="broto">Broto</option>
+                <option value="medio">Médio</option>
+                <option value="grande">Grande</option>
+                
+            </select>
+            <br>
+            <label for="borda">Qual tipo de borda você deseja?:</label>
+            <select name="borda" id="">
+                <option value="vazia">Vazia</option>
+                <option value="catupiri">Catupiri</option>
+                <option value="chedar">Chedar</option>
+                <option value="chocolate">Chocolate</option>
+            </select>
+            <br>    
+            <button>Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
