@@ -57,3 +57,4 @@ const Pedidos = sequelize.define("pedidos", {
     }
 })
 
+module.exports = {Clientes, Sabores, Pedidos, sequelize, Sequelize}
