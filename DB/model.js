@@ -56,5 +56,10 @@ const Pedidos = sequelize.define("pedidos", {
         allowNull:false
     }
 })
+/*
+Clientes.sync({force:true})
+Sabores.sync({force:true})
+Borda.sync({force:true})
+Pedidos.sync({force:true})*///caso seja a primeira vez que esta usando descomente essas linhas. depois recomente ou apague
 
 module.exports = {Clientes, Sabores, Pedidos, sequelize, Sequelize}

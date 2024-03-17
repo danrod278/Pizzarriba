@@ -1,10 +1,10 @@
-const {cadastrar_usuario, salvar_pedido} = require("./funcoes/funcoes") 
+const {verificar_usuario, salvar_pedido} = require("./funcoes/funcoes") 
 
-function cadastrarUsuario(form){
-    cadastrar_usuario(form)
+function verificarUsuario(form){
+    verificar_usuario(form)
 
 }
 function salvarPedido(form){
     salvar_pedido(form)
 }
-module.exports = {cadastrarUsuario, salvarPedido}
+module.exports = {verificarUsuario, salvarPedido}

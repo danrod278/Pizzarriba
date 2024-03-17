@@ -5,7 +5,7 @@ router.get('/', (req, res)=>{
 router.post("/main", (req, res)=>{
     let form = req.body
     console.log(form)
-    Controller.cadastrarUsuario(form)
+    Controller.verificarUsuario(form)
     Controller.salvarPedido(form)
 })
 

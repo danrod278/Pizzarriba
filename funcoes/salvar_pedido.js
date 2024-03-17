@@ -14,7 +14,7 @@ async function salvar_pedido(form){
         })
         console.log("Novo pedido salvo")
     }catch (err){
-        console.log("HOuve um erro: "+err)
+        console.log("Houve um erro: "+err)
     }
 }
 
