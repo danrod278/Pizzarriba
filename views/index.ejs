@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzarriba</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    
+    <div id="mae">
+        <div id="formulario">
+            <h1>Seja bem vindo a Pizzarriba</h1>
+            <div class="elementos" >
+                <form action="/main" method="POST">
+                    <label for="cpf" id="labelCPF">Qual o seu CPF?:</label>
+                    <input type="text" name="cpf" id="cpf">
+                    <br>
+                    <label for="nome">Seu nome:</label>
+                    <input type="text" name="nome" id="nome">
+                    <br>
+                    <label for="endereco">Qual o Seu endereço?:</label>
+                    <input type="text" name="endereco" id="endereco"><br>
+                    <label for="telefone">Qual seu telefone?: </label>
+                    <input type="text" name="telefone" id="telefone">
+                    <hr style="width: 300px; margin: 0px; padding: 0px 20px">
+                    <label for="sabor">Qual sabor você deseja hoje?</label>
+                    <select name="sabor" id="">
+                        <% sabores.forEach(function(sabor) {%>
+                            <option value="<%=sabor%>"><%=sabor%></option>
+                        <% })%>
+                    </select>
+                    <br>
+                    <label for="tamanho">Qual tamanho você deseja?: </label>
+                    <select name="tamanho" id="">
+                        <option value="broto">Broto</option>
+                        <option value="medio">Médio</option>
+                        <option value="grande">Grande</option>
+                        
+                    </select>
+                    <br>
+                    <label for="borda">Qual tipo de borda você deseja?:</label>
+                    <select name="borda" id="">
+        
+                        <%bordas.forEach(function(borda){%>
+                            <option value="<%=borda%>"><%=borda%></option>
+                        <%})%>
+        
+                        
+                    </select>
+                    <br>    
+                    <button>Enviar</button>
+                </form>
+        
+            </div>
+        
+            
+        </div>
+        <div id="pedidos" class="elementos">
+            <h1>Ultimos pedidos</h1>
+            <div>
+                <div id="pedidosbydb">
+                    
+                       
+                       
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <p id="visor">visor</p>
+    <script src="/lerIndex.js"></script>
+</body>
+</html>

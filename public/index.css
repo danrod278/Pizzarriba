@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100vh;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+#mae{
+    padding: 5rem 0rem 0rem 5rem;
+    display: flex;
+    gap: 5rem; 
+}
+
+
+
+#pedidos > h1{
+    padding: 0; /* Remova qualquer preenchimento */
+    margin: 0 !important; /* Remova qualquer margem */
+    position: relative; align-content: flex-start;
+    top: 0;
+}
+
+.elementos{
+    align-content: flex-start
+}
