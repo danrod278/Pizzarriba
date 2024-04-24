@@ -28,11 +28,14 @@ class ConstruirDiv{
     addElemento(pai){
         pai.appendChild(this.elemento)
     }
-    addEvento(){
+    addEvento(sabor, tamanho, borda){
         this.elemento.addEventListener("click",()=>{
-            console.log("Tá funcionando")
+            sabor.value = this.sabor
+            tamanho.value = this.tamanho
+            borda.value = this.borda
         })
     }
+    
 }
 
 function callAPI() {
@@ -64,6 +67,9 @@ function mostrarPedidos(data){
     const visor = document.getElementById("visor")
     const arrayClasses =[]
     console.log("Objeto__________:"+JSON.stringify(objeto))
+    const sabor = document.getElementById("sabor")
+    const tamanho = document.getElementById("tamanho")
+    const borda = document.getElementById("borda")
     for(let i=0;i<objeto.length;i++){
         var novoElemento = document.createElement("div")
         novoElemento.id = `elemento${i}`
@@ -72,7 +78,8 @@ function mostrarPedidos(data){
         arrayClasses.splice(i, 0, new ConstruirDiv(objeto[i].nome_pizza, objeto[i].borda, objeto[i].tamanho))
         
         arrayClasses[i].addElemento(divPedidos)
-        arrayClasses[i].addEvento()
+        arrayClasses[i].addEvento(sabor, tamanho, borda)
+
     }
 }
 

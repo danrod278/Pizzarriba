@@ -25,14 +25,14 @@
                     <input type="text" name="telefone" id="telefone">
                     <hr style="width: 300px; margin: 0px; padding: 0px 20px">
                     <label for="sabor">Qual sabor você deseja hoje?</label>
-                    <select name="sabor" id="">
+                    <select name="sabor" id="sabor">
                         <% sabores.forEach(function(sabor) {%>
                             <option value="<%=sabor%>"><%=sabor%></option>
                         <% })%>
                     </select>
                     <br>
                     <label for="tamanho">Qual tamanho você deseja?: </label>
-                    <select name="tamanho" id="">
+                    <select name="tamanho" id="tamanho">
                         <option value="broto">Broto</option>
                         <option value="medio">Médio</option>
                         <option value="grande">Grande</option>
@@ -40,7 +40,7 @@
                     </select>
                     <br>
                     <label for="borda">Qual tipo de borda você deseja?:</label>
-                    <select name="borda" id="">
+                    <select name="borda" id="borda">
         
                         <%bordas.forEach(function(borda){%>
                             <option value="<%=borda%>"><%=borda%></option>

@@ -56,8 +56,8 @@ const Pedidos = sequelize.define("pedidos", {
         allowNull:false
     }
 })
-
-/*Clientes.sync({force:true})
+/*
+Clientes.sync({force:true})
 Sabores.sync({force:true})
 Bordas.sync({force:true})
 Pedidos.sync({force:true})*///caso seja a primeira vez que esta usando descomente essas linhas. depois recomente ou apague
