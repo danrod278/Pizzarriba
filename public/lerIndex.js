@@ -1,58 +1,79 @@
 document.getElementById("cpf").addEventListener('input', callAPI)
+/*
+class ConsruirDiv{
+    constructor(){
+        this.elemento = document.createElement("div")
 
+        
 
-function callAPI(){
-    const divPedidos = document.getElementById("pedidosbydb")
-    divPedidos.innerHTML=""
-    var cpfInput = document.getElementById("cpf").value    
-    if(cpfInput){
-        const dados = {cpfInput}
-        fetch('/verifyPedidos', {
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body: JSON.stringify(dados)
-        }
-        ).then(async (response) => response.json()).then(async (data)=>{
-            console.log(data)
-            if(data!=[]){
-                const obj = ((JSON.parse(data))[0].cpf)
-                
-                mostrarPedidos(data)
+        this.borda = document.createElement("p")
+        this.borda.innerText = tBorda
+        this.elemento.insertBefore(this.borda, this.elemento.children(1))
 
-                addValorInput(obj)
-            }
-            return
-            
-
-        })
+        this.tamanho = document.createElement('p')
+        this.tamanho.innerText = tTamanho
+        this.elemento.insertBefore(this.tamanho, this.elemento.children(2))
     }
-    
+    addTitulo(tTitulo){
+        this.titulo = document.createElement("h1")
+        this.titulo.innerText=tTitulo
+        this.elemento.
+    }
+}*/
 
+function callAPI() {
+    const divPedidos = document.getElementById("pedidosbydb");
+   
+    var cpfInput = document.getElementById("cpf").value;    
+    divPedidos.innerHTML = "";    
+    if (cpfInput) {
+        const dados = { cpfInput };
+        fetch('/verifyPedidos', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(dados)
+        }).then(async (response) => response.json())
+          .then(async (data) => {
+              console.log(data);
+              if (data.length > 0) {
+                  const obj = JSON.parse(data)[0].cpf;
+                  mostrarPedidos(data);
+                  addValorInput(obj);
+              }
+          });
+        }
 }
 
 function mostrarPedidos(data){
     const objeto = JSON.parse(data)
     const divPedidos = document.getElementById("pedidosbydb")
     const visor = document.getElementById("visor")
+    let arrayPedidos = []
     //visor.innerText = objeto[0].id
     for(i=0;i<objeto.length;i++){
 
+        //arrayPedidos.push(new ConsruirDiv(objeto[i].nome_pizza, objeto[i].borda, objeto[i].tamanho))
+
         var novoElemento = document.createElement("div")
+        novoElemento.id = `elemento${i}`
         novoElemento.classList.add("pedidos")
+
+        //novoElemento.addEventListener("click", click(novoElemento.id))
 
         var titulo = document.createElement("h1")
         titulo.innerText = objeto[i].nome_pizza
-        novoElemento.insertBefore(titulo, novoElemento.children[0])
+        novoElemento.appendChild(titulo)
         
         var borda = document.createElement('p')
         borda.innerText = objeto[i].borda
-        novoElemento.insertBefore(borda, novoElemento.children[1])
+        novoElemento.appendChild(borda)
 
         var tamanho = document.createElement('p')
         tamanho.innerText = objeto[i].tamanho
-        novoElemento.insertBefore(tamanho, novoElemento.children[2])
+        novoElemento.appendChild(tamanho)
+        /**/
         
-        divPedidos.insertBefore(novoElemento, divPedidos.children[i])
+        divPedidos.appendChild(novoElemento)
     }
 }
 
@@ -73,7 +94,7 @@ function addValorInput(cpf){
                 var nomeInput = document.getElementById("nome")
                 var enderecoInput = document.getElementById("endereco")
                 var telefoneInput = document.getElementById("telefone")
-    
+                
                 nomeInput.value = objetoUsuario.nome
                 enderecoInput.value = objetoUsuario.endereco
                 telefoneInput.value = objetoUsuario.telefone/**/
@@ -89,3 +110,4 @@ function addValorInput(cpf){
 
     
 }
+
