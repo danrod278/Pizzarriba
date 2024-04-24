@@ -1,25 +1,35 @@
 document.getElementById("cpf").addEventListener('input', callAPI)
-/*
+
 class ConsruirDiv{
-    constructor(){
-        this.elemento = document.createElement("div")
-
+    constructor(sabor, tamanho, borda){
+        this.sabor = sabor
+        this.tamanho = tamanho 
+        this.borda = borda
+        this.elemento = this.criarElemento() 
+    }
+    criarElemento(){
+        const div = document.createElement("div")
         
+        const saborp = document.createElement("p")
+        saborp.innerText = this.sabor
+        
+        const tamanhop = document.createElement("p")
+        tamanhop.innerText = this.tamanho
+        
+        const bordap = document.createElement("p")
+        bordap.innerText = this.borda
 
-        this.borda = document.createElement("p")
-        this.borda.innerText = tBorda
-        this.elemento.insertBefore(this.borda, this.elemento.children(1))
+        div.appendChild(saborp)
+        div.appendChild(tamanhop)
+        div.appendChild(bordap)
+        return div
+    }
+    addElemento(pai){
+        pai.appendChild(this.elemento)
+    }
+}
 
-        this.tamanho = document.createElement('p')
-        this.tamanho.innerText = tTamanho
-        this.elemento.insertBefore(this.tamanho, this.elemento.children(2))
-    }
-    addTitulo(tTitulo){
-        this.titulo = document.createElement("h1")
-        this.titulo.innerText=tTitulo
-        this.elemento.
-    }
-}*/
+/**/
 
 function callAPI() {
     const divPedidos = document.getElementById("pedidosbydb");
@@ -48,8 +58,7 @@ function mostrarPedidos(data){
     const objeto = JSON.parse(data)
     const divPedidos = document.getElementById("pedidosbydb")
     const visor = document.getElementById("visor")
-    let arrayPedidos = []
-    //visor.innerText = objeto[0].id
+
     for(i=0;i<objeto.length;i++){
 
         //arrayPedidos.push(new ConsruirDiv(objeto[i].nome_pizza, objeto[i].borda, objeto[i].tamanho))
