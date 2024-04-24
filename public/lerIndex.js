@@ -6,6 +6,7 @@ class ConstruirDiv{
         this.tamanho = tamanho 
         this.borda = borda
         this.elemento = this.criarElemento() 
+        
     }
     criarElemento(){
         const div = document.createElement("div")
@@ -27,9 +28,12 @@ class ConstruirDiv{
     addElemento(pai){
         pai.appendChild(this.elemento)
     }
+    addEvento(){
+        this.elemento.addEventListener("click",()=>{
+            console.log("Tá funcionando")
+        })
+    }
 }
-
-/**/
 
 function callAPI() {
     const divPedidos = document.getElementById("pedidosbydb");
@@ -61,9 +65,6 @@ function mostrarPedidos(data){
     const arrayClasses =[]
     console.log("Objeto__________:"+JSON.stringify(objeto))
     for(let i=0;i<objeto.length;i++){
-
-        //arrayPedidos.push(new ConsruirDiv(objeto[i].nome_pizza, objeto[i].borda, objeto[i].tamanho))
-
         var novoElemento = document.createElement("div")
         novoElemento.id = `elemento${i}`
         novoElemento.classList.add("pedidos")
@@ -71,12 +72,11 @@ function mostrarPedidos(data){
         arrayClasses.splice(i, 0, new ConstruirDiv(objeto[i].nome_pizza, objeto[i].borda, objeto[i].tamanho))
         
         arrayClasses[i].addElemento(divPedidos)
-
+        arrayClasses[i].addEvento()
     }
 }
 
 function addValorInput(cpf){
-    //console.log(JSON.stringify({cpf}))
 
     fetch("/carregaCliente", {
         method:"POST",
@@ -100,12 +100,8 @@ function addValorInput(cpf){
                 console.log("Houve um erro ao apresentar os dados do usuarios no Input (lerInput): "+err)
             }
         }
-        
-        
     }).catch(err=>{
         console.log("Houve um erro ao tentar puxar os dados do usuario (lerIndex): "+err)
     })
-
-    
 }
 
