@@ -1,6 +1,6 @@
 document.getElementById("cpf").addEventListener('input', callAPI)
 
-class ConsruirDiv{
+class ConstruirDiv{
     constructor(sabor, tamanho, borda){
         this.sabor = sabor
         this.tamanho = tamanho 
@@ -10,7 +10,7 @@ class ConsruirDiv{
     criarElemento(){
         const div = document.createElement("div")
         
-        const saborp = document.createElement("p")
+        const saborp = document.createElement("h1")
         saborp.innerText = this.sabor
         
         const tamanhop = document.createElement("p")
@@ -58,8 +58,9 @@ function mostrarPedidos(data){
     const objeto = JSON.parse(data)
     const divPedidos = document.getElementById("pedidosbydb")
     const visor = document.getElementById("visor")
-
-    for(i=0;i<objeto.length;i++){
+    const arrayClasses =[]
+    console.log("Objeto__________:"+JSON.stringify(objeto))
+    for(let i=0;i<objeto.length;i++){
 
         //arrayPedidos.push(new ConsruirDiv(objeto[i].nome_pizza, objeto[i].borda, objeto[i].tamanho))
 
@@ -67,22 +68,10 @@ function mostrarPedidos(data){
         novoElemento.id = `elemento${i}`
         novoElemento.classList.add("pedidos")
 
-        //novoElemento.addEventListener("click", click(novoElemento.id))
-
-        var titulo = document.createElement("h1")
-        titulo.innerText = objeto[i].nome_pizza
-        novoElemento.appendChild(titulo)
+        arrayClasses.splice(i, 0, new ConstruirDiv(objeto[i].nome_pizza, objeto[i].borda, objeto[i].tamanho))
         
-        var borda = document.createElement('p')
-        borda.innerText = objeto[i].borda
-        novoElemento.appendChild(borda)
+        arrayClasses[i].addElemento(divPedidos)
 
-        var tamanho = document.createElement('p')
-        tamanho.innerText = objeto[i].tamanho
-        novoElemento.appendChild(tamanho)
-        /**/
-        
-        divPedidos.appendChild(novoElemento)
     }
 }
 
